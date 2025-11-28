@@ -46,7 +46,7 @@ const Index = () => {
                 </div>
                 <div>
                   <div className="text-sm font-light opacity-80">Контакты</div>
-                  <div className="text-lg font-medium">+7 (XXX) XXX-XX-XX</div>
+                  <div className="text-lg font-medium">+7 (982) 963-22-11</div>
                 </div>
               </div>
 
