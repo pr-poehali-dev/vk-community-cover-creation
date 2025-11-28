@@ -18,18 +18,21 @@ const Index = () => {
 
           <div className="relative h-full flex items-center justify-between px-16">
             <div className="flex items-center gap-8">
-              <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center shadow-xl">
+              <div className="w-36 h-36 bg-white rounded-2xl flex items-center justify-center shadow-xl p-4">
                 <img 
-                  src="https://cdn.poehali.dev/projects/eb8e32e1-0784-4ad9-ae7c-1bdaec177515/files/74468e5b-63d0-408a-8674-76b58e4465d6.jpg" 
-                  alt="Логотип" 
-                  className="w-24 h-24 object-contain"
+                  src="https://cdn.poehali.dev/files/9729fdfd-4313-4728-834b-ccec2d56c4fd.png" 
+                  alt="Логотип ООО Тюменькапстрой" 
+                  className="w-full h-full object-contain"
                 />
               </div>
 
               <div className="space-y-3">
-                <h1 className="text-5xl font-bold text-white tracking-tight">
-                  ТеплоСтрой
-                </h1>
+                <div className="space-y-1">
+                  <div className="text-sm text-white/70 font-light tracking-wide">ООО «Тюменькапстрой»</div>
+                  <h1 className="text-5xl font-bold text-white tracking-tight">
+                    Тюменькапстрой
+                  </h1>
+                </div>
                 <p className="text-xl text-white/90 font-light max-w-2xl">
                   Строительство, реконструкция и капитальный ремонт тепловых сетей
                 </p>
