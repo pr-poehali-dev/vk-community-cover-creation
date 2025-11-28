@@ -1,10 +1,57 @@
 import Icon from '@/components/ui/icon';
+import html2canvas from 'html2canvas';
+import { useRef } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 const Index = () => {
+  const coverRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+
+  const handleDownload = async () => {
+    if (!coverRef.current) return;
+
+    try {
+      toast({
+        title: "Создаю изображение...",
+        description: "Подождите несколько секунд",
+      });
+
+      const canvas = await html2canvas(coverRef.current, {
+        scale: 2,
+        backgroundColor: null,
+        logging: false,
+        width: 1590,
+        height: 400,
+      });
+
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'tyumenkапstroy-vk-cover.png';
+          link.click();
+          URL.revokeObjectURL(url);
+
+          toast({
+            title: "Готово!",
+            description: "Обложка успешно скачана",
+          });
+        }
+      });
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось создать изображение",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-8">
       <div className="w-full max-w-6xl">
-        <div className="relative w-full aspect-[16/5] bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-2xl overflow-hidden shadow-2xl">
+        <div ref={coverRef} className="relative w-full aspect-[16/5] bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-2xl overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-5">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
               <defs>
@@ -90,11 +137,15 @@ const Index = () => {
             Обложка для сообщества ВКонтакте • Размер: 1590×400px
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium">
+            <button 
+              onClick={handleDownload}
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center gap-2"
+            >
+              <Icon name="Download" size={20} />
               Скачать обложку
             </button>
             <button className="px-6 py-3 border-2 border-border rounded-lg hover:bg-secondary transition-colors font-medium">
-              Изменить дизайн
+              Инструкция
             </button>
           </div>
         </div>
