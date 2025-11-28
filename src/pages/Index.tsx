@@ -69,6 +69,16 @@ const Index = () => {
                   <div className="text-base font-medium">kapstroy.office@mail.ru</div>
                 </div>
               </div>
+
+              <div className="flex items-center gap-3 text-white/90">
+                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <Icon name="MapPin" size={24} />
+                </div>
+                <div>
+                  <div className="text-sm font-light opacity-80">Адрес</div>
+                  <div className="text-sm font-medium">г. Тюмень, ул. Одесская, д.3 стр.1 оф.310</div>
+                </div>
+              </div>
             </div>
           </div>
 
