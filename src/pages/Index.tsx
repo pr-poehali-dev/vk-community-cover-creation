@@ -56,7 +56,17 @@ const Index = () => {
                 </div>
                 <div>
                   <div className="text-sm font-light opacity-80">Опыт работы</div>
-                  <div className="text-lg font-medium">15+ лет</div>
+                  <div className="text-lg font-medium">10+ лет</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 text-white/90">
+                <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <Icon name="Mail" size={24} />
+                </div>
+                <div>
+                  <div className="text-sm font-light opacity-80">Email</div>
+                  <div className="text-base font-medium">kapstroy.office@mail.ru</div>
                 </div>
               </div>
             </div>
